@@ -10,7 +10,6 @@ public class Book {
 	private String publisher;
 	private String author;
 	private String regDate;
-	private static String outputFormat = "%-10s\t%-10s\t%-10s\t%-10s\t%-10s";
 	public Book() {}
 
 	public Book(int no, String name, String publisher, String author, String regDate) {
@@ -68,20 +67,4 @@ public class Book {
 	public void setRegDate(String regDate) {
 		this.regDate = regDate;
 	}
-	
-	public String toString() {
-		String ret = String.format(outputFormat, no+"", name, publisher, author, regDate);
-		return ret;
-	}
-	
-	public String toShortString() {
-		String[] toStrings = toString().split("\t");
-		for(int i = 0 ; i < toStrings.length ; i++) {
-			if(StringUtils.trim(toStrings[i]).length() > 3) {
-				toStrings[i] = StringUtils.substring(toStrings[i], 0, 3) + "..";
-			}
-		}
-		return String.format(outputFormat, (Object[])toStrings);
-	}
-
 }
